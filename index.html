@@ -6,112 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jianan Chen</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Fira Code', monospace;
-            color: #e0e0e0;
-            background: linear-gradient(-45deg, #1c1c1c, #232323, #1c1c1c, #232323);
-            background-size: 400% 400%;
-            animation: gradientBG 20s ease infinite;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            backdrop-filter: blur(10px);
-            background: rgba(28, 28, 28, 0.7);
-            z-index: 1000;
-        }
-
-        .navbar a {
-            color: #c8a2c8;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .navbar a:hover {
-            color: #d8bfd8;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 6rem 2rem 2rem;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .intro, .projects {
-            background: rgba(34, 34, 34, 0.85);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            width: 100%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-        }
-
-        h1, h2, h3 {
-            color: #d8bfd8;
-        }
-
-        .profile-pic {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 3px solid #d8bfd8;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info a {
-            color: #d8bfd8;
-            text-decoration: none;
-            display: inline-block;
-            margin: 0.5rem;
-        }
-
-        .project-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 1rem;
-            margin: 1rem 0;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(216, 191, 216, 0.5);
-        }
-
-        footer {
-            margin-top: 4rem;
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #888;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
     <div class="navbar">
-        <div><a href="index.html">Jianan Chen</a></div>
-        <div>
+        <div class="left"><a href="index.html">Jianan Chen</a></div>
+        <div class="spacer"></div>
+        <div class="right">
             <a href="publications.html">Publications</a>
             <a href="teaching.html">Teaching</a>
             <a href="cv.pdf" target="_blank">CV</a>
@@ -120,7 +22,7 @@
 
     <div class="container">
         <div class="intro">
-            <img src="Profile.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="assets/Profile.jpg" alt="Profile Picture" class="profile-pic">
             <h1>Jianan Chen</h1>
             <p>Ph.D. Student in Computer Science, Purdue University</p>
             <div class="contact-info">
