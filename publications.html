@@ -4,53 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Jianan Chen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Jianan Chen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+            font-family: 'Fira Code', monospace;
+            color: #e0e0e0;
+            background: linear-gradient(-45deg, #1c1c1c, #232323, #1c1c1c, #232323);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #ffffff;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0.8rem 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+            background: rgba(28, 28, 28, 0.7);
+            z-index: 1000;
+            font-size: 0.95rem;
+        }
+
+        .navbar div {
+            display: flex;
+            align-items: center;
         }
 
         .navbar a {
+            color: #c8a2c8;
             text-decoration: none;
-            color: #333;
-            margin: 0 1rem;
+            margin-left: 1rem;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar a:first-child {
+            margin-left: 0;
+        }
+
+        .navbar a:hover {
+            color: #d8bfd8;
         }
 
         .container {
             display: flex;
-            padding: 2rem;
+            flex-direction: column;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            max-width: 1000px;
+            margin: auto;
         }
 
-        .sidebar {
-            width: 250px;
+        .intro, .projects {
+            background: rgba(34, 34, 34, 0.85);
+            border-radius: 16px;
             padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-right: 2rem;
-            text-align: center;
+            margin: 2rem 0;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
 
-        .content {
-            flex: 1;
-            padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        h1, h2, h3 {
+            color: #d8bfd8;
         }
 
         .profile-pic {
@@ -58,45 +84,45 @@
             width: 150px;
             height: 150px;
             object-fit: cover;
+            border: 3px solid #d8bfd8;
             margin-bottom: 1rem;
-        }
-
-        h1,
-        h2,
-        h3 {
-            color: #333;
-        }
-
-        p {
-            color: #666;
-            line-height: 1.6;
         }
 
         .contact-info a {
-            display: block;
-            margin: 0.5rem 0;
-            color: #007BFF;
+            color: #d8bfd8;
             text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .project-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .publication-list {
-            list-style-type: none;
-            padding: 0;
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(216, 191, 216, 0.5);
         }
 
-        .publication-list li {
-            margin-bottom: 1rem;
+        footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
         }
     </style>
 </head>
 
 <body>
     <div class="navbar">
-        <div><a href="index.html">Jianan Chen</a></div>
+        <div>
+            <a href="index.html">Jianan Chen</a>
+        </div>
         <div>
             <a href="publications.html">Publications</a>
             <a href="teaching.html">Teaching</a>
@@ -105,43 +131,39 @@
     </div>
 
     <div class="container">
-        <div class="sidebar">
+        <div class="intro">
             <img src="Profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h2>Jianan Chen</h2>
-            <p>Ph.D. student at Purdue University</p>
+            <h1>Jianan Chen</h1>
+            <p>Ph.D. Student in Computer Science, Purdue University</p>
             <div class="contact-info">
                 <a href="mailto:chen3873@purdue.edu">Email</a>
                 <a href="https://scholar.google.com/citations?user=9cql4fcAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
             </div>
+            <p>
+                My research focuses on federated learning, game theory, and privacy-preserving machine learning. I aim to bridge theoretical modeling and practical application, especially in federated unlearning and decentralized optimization.
+            </p>
         </div>
 
-        <div class="content">
-            <h1>Publications</h1>
-            <ul class="publication-list">
-                <li>
-                    1. Chen, Jianan, Honglu Jiang, and Qin Hu. "Utility-Enhanced Personalized Privacy Preservation in Hierarchical Federated Learning." <i>IEEE Transactions on Mobile Computing</i> (2024).
-                </li>
-                <li>
-                    2. Chen, Jianan, Qin Hu, Fangtian Zhong, Yan Zhuang, and Minghui Xu. "Upcycling Noise for Federated Unlearning." <i>IEEE Transactions on Information Forensics and Security</i> (2024).
-                </li>
-                <li>
-                    3. Chen, Jianan, Qin Hu, and Honglu Jiang. "Alliance Makes Difference? Maximizing Social Welfare in Cross-Silo Federated Learning." <i>IEEE Transactions on Vehicular Technology</i> (2023).
-                </li>
-                <li>
-                    4. Chakrabarti, Subir K., Jianan Chen, and Qin Hu. "Stationary Markov Equilibrium Strategies in Asynchronous Stochastic Games: Existence and Computation." <i>Algorithms</i> 17.11 (2024): 490.
-                </li>
-                <li>
-                    5. Chen, Jianan, Qin Hu, and Honglu Jiang. "Strategic signaling for utility control in audit games." <i>Computers & Security</i> 118 (2022): 102721.
-                </li>
-                <li>
-                    6. Chen, Jianan, Qin Hu, and Honglu Jiang. "Social welfare maximization in cross-silo federated learning." <i>ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</i>. IEEE, 2022.
-                </li>
-                <li>
-                    7. Peng, Cheng, et al. "Energy-efficient device selection in federated edge learning." <i>2021 International Conference on Computer Communications and Networks (ICCCN)</i>. IEEE, 2021.
-                </li>
-            </ul>
+        <div class="projects">
+            <h2>Selected Projects</h2>
+            <div class="project-item">
+                <h3>Utility-Enhanced Personalized Privacy Preservation</h3>
+                <p>Developed Group Local Differential Privacy (GLDP) framework for Hierarchical Federated Learning (HFL), enhancing privacy without sacrificing model performance.</p>
+            </div>
+            <div class="project-item">
+                <h3>Federated Unlearning with Upcycling Noise</h3>
+                <p>Introduced noise recycling strategies to support efficient client unlearning, preserving model utility under strict privacy constraints.</p>
+            </div>
+            <div class="project-item">
+                <h3>Strategic Signaling for Utility Control in Audit Games</h3>
+                <p>Formulated dynamic signaling mechanisms to optimize player utility under auditing scenarios in adversarial settings.</p>
+            </div>
         </div>
     </div>
+
+    <footer>
+        &copy; 2025 Jianan Chen
+    </footer>
 </body>
 
 </html>
