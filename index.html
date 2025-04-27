@@ -10,9 +10,16 @@
         body {
             margin: 0;
             font-family: 'Fira Code', monospace;
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #f0f0f0;
+            color: #e0e0e0;
+            background: linear-gradient(-45deg, #1c1c1c, #232323, #1c1c1c, #232323);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .navbar {
@@ -24,12 +31,12 @@
             width: 100%;
             top: 0;
             backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(28, 28, 28, 0.7);
             z-index: 1000;
         }
 
         .navbar a {
-            color: #f0f0f0;
+            color: #c8a2c8;
             text-decoration: none;
             margin: 0 1rem;
             font-weight: bold;
@@ -37,7 +44,7 @@
         }
 
         .navbar a:hover {
-            color: #00bfff;
+            color: #d8bfd8;
         }
 
         .container {
@@ -50,7 +57,7 @@
         }
 
         .intro, .projects {
-            background: rgba(18, 18, 18, 0.85);
+            background: rgba(34, 34, 34, 0.85);
             border-radius: 16px;
             padding: 2rem;
             margin: 2rem 0;
@@ -59,7 +66,7 @@
         }
 
         h1, h2, h3 {
-            color: #00bfff;
+            color: #d8bfd8;
         }
 
         .profile-pic {
@@ -67,12 +74,12 @@
             width: 150px;
             height: 150px;
             object-fit: cover;
-            border: 3px solid #00bfff;
+            border: 3px solid #d8bfd8;
             margin-bottom: 1rem;
         }
 
         .contact-info a {
-            color: #00bfff;
+            color: #d8bfd8;
             text-decoration: none;
             display: inline-block;
             margin: 0.5rem;
@@ -88,7 +95,7 @@
 
         .project-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 191, 255, 0.5);
+            box-shadow: 0 8px 30px rgba(216, 191, 216, 0.5);
         }
 
         footer {
