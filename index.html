@@ -1,170 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jianan Chen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cyber-teal: #00ffd5;
-            --matrix-green: #00ff00;
-            --neon-purple: #bc13fe;
-            --dark-bg: #0a192f;
-        }
-
         body {
-            font-family: 'Source Code Pro', monospace;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(45deg, #0f0f1a 0%, #1a1a2f 100%);
-            color: #e6f1ff;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        .cyber-border {
-            position: fixed;
-            pointer-events: none;
-            border: 2px solid var(--cyber-teal);
-            box-shadow: 0 0 15px var(--cyber-teal);
-            animation: borderGlow 3s infinite;
-        }
-
-        @keyframes borderGlow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+            font-family: 'Fira Code', monospace;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0;
         }
 
         .navbar {
-            background: rgba(10, 25, 47, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--cyber-teal);
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
         }
 
         .navbar a {
-            color: #e6f1ff;
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: 0.3s;
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
         }
 
         .navbar a:hover {
-            color: var(--cyber-teal);
-            text-shadow: 0 0 10px var(--cyber-teal);
+            color: #00bfff;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .intro, .projects {
+            background: rgba(18, 18, 18, 0.85);
+            border-radius: 16px;
             padding: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        h1, h2, h3 {
+            color: #00bfff;
         }
 
         .profile-pic {
-            border: 2px solid var(--cyber-teal);
-            box-shadow: 0 0 20px var(--cyber-teal);
-            transition: transform 0.3s;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid #00bfff;
+            margin-bottom: 1rem;
         }
 
-        .profile-pic:hover {
-            transform: rotate(5deg) scale(1.05);
+        .contact-info a {
+            color: #00bfff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .project-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .project-card {
-            background: rgba(15, 25, 40, 0.8);
-            border: 1px solid var(--cyber-teal);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: transform 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
+        .project-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 191, 255, 0.5);
         }
 
-        .project-card::before {
-            content: ">";
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            color: var(--cyber-teal);
-            font-weight: bold;
-        }
-
-        .terminal-effect {
-            border-left: 3px solid var(--cyber-teal);
-            padding-left: 1rem;
-            animation: typing 2s steps(40) infinite;
-        }
-
-        @keyframes typing {
-            from { border-color: transparent; }
-            50% { border-color: var(--cyber-teal); }
+        footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
         }
     </style>
 </head>
 
 <body>
-    <div class="cyber-border" style="top:0;left:0;right:0;height:50px;"></div>
-    
     <div class="navbar">
-        <div><a href="index.html">Jianan_Chen@Purdue:~$</a></div>
+        <div><a href="index.html">Jianan Chen</a></div>
         <div>
-            <a href="publications.html">/publications</a>
-            <a href="teaching.html">/teaching</a>
-            <a href="cv.pdf" target="_blank">/cv</a>
+            <a href="publications.html">Publications</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="cv.pdf" target="_blank">CV</a>
         </div>
     </div>
 
     <div class="container">
-        <div class="sidebar">
+        <div class="intro">
             <img src="Profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h2 class="terminal-effect">Jianan Chen</h2>
-            <p>> Ph.D. candidate in Computer Science</p>
+            <h1>Jianan Chen</h1>
+            <p>Ph.D. Student in Computer Science, Purdue University</p>
             <div class="contact-info">
-                <a href="mailto:chen3873@purdue.edu" style="color: var(--cyber-teal);">$ email --send chen3873@purdue.edu</a>
-                <a href="https://scholar.google.com" target="_blank" style="color: var(--matrix-green);">$ open scholar_profile</a>
+                <a href="mailto:chen3873@purdue.edu">Email</a>
+                <a href="https://scholar.google.com/citations?user=9cql4fcAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
             </div>
+            <p>
+                My research focuses on federated learning, game theory, and privacy-preserving machine learning. I aim to bridge theoretical modeling and practical application, especially in federated unlearning and decentralized optimization.
+            </p>
         </div>
 
-        <div class="content">
-            <h1 class="terminal-effect">> about_me</h1>
-            <p style="border-left: 3px solid var(--neon-purple); padding-left: 1rem;">
-                [root@Purdue ~]# cat bio.txt<br>
-                Researcher specializing in federated learning and privacy-preserving ML.<br>
-                Developing secure AI systems with game theory approaches.<br>
-                Published in IEEE TMC, TIFS, and other top venues.
-            </p>
-
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Federated Unlearning</h3>
-                    <p>Developing noise-based methods for efficient model forgetting in distributed systems</p>
-                    <span style="color: var(--cyber-teal);">[Python, PyTorch, MPI]</span>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Privacy Games</h3>
-                    <p>Game-theoretic frameworks for adversarial privacy preservation</p>
-                    <span style="color: var(--cyber-teal);">[TensorFlow, Game Theory]</span>
-                </div>
-
-                <div class="project-card">
-                    <h3>Decentralized Optimization</h3>
-                    <p>Developing communication-efficient algorithms for federated systems</p>
-                    <span style="color: var(--cyber-teal);">[MPI, CUDA, Rust]</span>
-                </div>
+        <div class="projects">
+            <h2>Selected Projects</h2>
+            <div class="project-item">
+                <h3>Utility-Enhanced Personalized Privacy Preservation</h3>
+                <p>Developed Group Local Differential Privacy (GLDP) framework for Hierarchical Federated Learning (HFL), enhancing privacy without sacrificing model performance.</p>
+            </div>
+            <div class="project-item">
+                <h3>Federated Unlearning with Upcycling Noise</h3>
+                <p>Introduced noise recycling strategies to support efficient client unlearning, preserving model utility under strict privacy constraints.</p>
+            </div>
+            <div class="project-item">
+                <h3>Strategic Signaling for Utility Control in Audit Games</h3>
+                <p>Formulated dynamic signaling mechanisms to optimize player utility under auditing scenarios in adversarial settings.</p>
             </div>
         </div>
     </div>
+
+    <footer>
+        &copy; 2025 Jianan Chen
+    </footer>
 </body>
+
 </html>
