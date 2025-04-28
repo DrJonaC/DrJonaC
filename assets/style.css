@@ -17,9 +17,10 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* 半透明黑色遮罩 */
+    background: rgba(0, 0, 0, 0.25); /* 更轻的蒙版透明度 */
     z-index: -1;
 }
+
 
 /* 导航栏 */
 .navbar {
@@ -32,7 +33,7 @@ body::after {
     backdrop-filter: blur(10px);
     background: rgba(28, 28, 28, 0.7);
     z-index: 1000;
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* 字体稍小一点 */
 }
 
 .navbar .left {
@@ -45,20 +46,10 @@ body::after {
 
 .navbar .right {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem; /* 间距稍小 */
     flex-shrink: 0;
 }
 
-.navbar a {
-    color: #c8a2c8;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #d8bfd8;
-}
 
 /* 页面主容器 */
 .container {
