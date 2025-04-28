@@ -123,7 +123,6 @@ h1, h2, h3 {
 .contact-info a:hover {
     color: #FFD700;
     transform: scale(1.05);
-    box-shadow: 0 0 8px #FFD700, 0 0 16px #FFD700;
 }
 
 /* 项目列表和Teaching列表的li */
@@ -137,8 +136,8 @@ h1, h2, h3 {
 }
 
 .project-item:hover, .content ul li:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.25);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
 }
 
 /* Teaching页面右对齐时间 */
