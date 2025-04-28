@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Fira Code', monospace;
     color: #e0e0e0;
-    background: url('assets/background.jpg') no-repeat center center fixed;
+    background: url('/DrJonaC/assets/background.jpg') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     overflow-x: hidden;
