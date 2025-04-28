@@ -38,14 +38,14 @@ body::after {
 }
 
 .navbar a {
-    color: #c8a2c8;
+    color: #C9A53F;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .navbar a:hover {
-    color: #d8bfd8;
+    color: #FFD700;
 }
 
 .navbar .home {
@@ -78,7 +78,7 @@ body::after {
 
 /* 标题颜色 */
 h1, h2, h3 {
-    color: #d8bfd8;
+    color: #C9A53F;
 }
 
 /* 头像 */
@@ -87,13 +87,13 @@ h1, h2, h3 {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 3px solid #d8bfd8;
+    border: 3px solid #C9A53F;
     margin-bottom: 1rem;
 }
 
 /* 联系信息链接 */
 .contact-info a {
-    color: #d8bfd8;
+    color: #C9A53F;
     text-decoration: none;
     display: inline-block;
     margin: 0.5rem;
