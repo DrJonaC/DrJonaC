@@ -17,7 +17,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25); /* 更轻的蒙版透明度 */
+    background: rgba(0, 0, 0, 0); /* 更轻的蒙版透明度 */
     z-index: -1;
 }
 
