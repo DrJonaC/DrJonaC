@@ -17,10 +17,30 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* 更轻的蒙版透明度 */
+    background: rgba(0, 0, 0, 0.25);
     z-index: -1;
 }
 
+/* 流光特效 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 215, 0, 0.1));
+    animation: flow 30s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+    mix-blend-mode: screen;
+}
+
+@keyframes flow {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-50px, -50px); }
+    100% { transform: translate(0, 0); }
+}
 
 /* 导航栏 */
 .navbar {
@@ -41,20 +61,20 @@ body::after {
     color: #C9A53F;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .navbar a:hover {
     color: #FFD700;
+    transform: scale(1.05);
+    box-shadow: 0 0 8px #FFD700, 0 0 16px #FFD700;
 }
 
 .navbar .home {
     font-size: 1.1rem;
-    color: #ffffff;
+    color: #FFD700;
 }
-
-
-
 
 /* 页面主容器 */
 .container {
@@ -97,6 +117,13 @@ h1, h2, h3 {
     text-decoration: none;
     display: inline-block;
     margin: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #FFD700;
+    transform: scale(1.05);
+    box-shadow: 0 0 8px #FFD700, 0 0 16px #FFD700;
 }
 
 /* 项目列表和Teaching列表的li */
@@ -105,12 +132,13 @@ h1, h2, h3 {
     border-radius: 12px;
     padding: 1rem;
     margin: 1rem 0;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-item:hover, .content ul li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(216, 191, 216, 0.5);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
 }
 
 /* Teaching页面右对齐时间 */
