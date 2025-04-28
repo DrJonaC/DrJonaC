@@ -17,7 +17,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0); /* 更轻的蒙版透明度 */
+    background: rgba(0, 0, 0, 0.2); /* 更轻的蒙版透明度 */
     z-index: -1;
 }
 
@@ -26,28 +26,15 @@ body::after {
 .navbar {
     display: flex;
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
     background: rgba(28, 28, 28, 0.7);
     backdrop-filter: blur(10px);
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     z-index: 1000;
-    font-size: 0.95rem;
-}
-
-.navbar .left {
-    flex-shrink: 0;
-}
-
-.navbar .spacer {
-    flex-grow: 1;
-}
-
-.navbar .right {
-    display: flex;
-    gap: 1rem;
-    flex-shrink: 0;
+    font-size: 1rem;
 }
 
 .navbar a {
@@ -60,6 +47,12 @@ body::after {
 .navbar a:hover {
     color: #d8bfd8;
 }
+
+.navbar .home {
+    font-size: 1.1rem;
+    color: #e0c7e0;
+}
+
 
 
 
