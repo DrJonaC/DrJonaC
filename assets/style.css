@@ -27,13 +27,13 @@ body::after {
     display: flex;
     align-items: center;
     padding: 0.8rem 1.5rem;
+    background: rgba(28, 28, 28, 0.7);
+    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
     top: 0;
-    backdrop-filter: blur(10px);
-    background: rgba(28, 28, 28, 0.7);
     z-index: 1000;
-    font-size: 0.9rem; /* 字体稍小一点 */
+    font-size: 0.95rem;
 }
 
 .navbar .left {
@@ -46,9 +46,21 @@ body::after {
 
 .navbar .right {
     display: flex;
-    gap: 0.8rem; /* 间距稍小 */
+    gap: 1rem;
     flex-shrink: 0;
 }
+
+.navbar a {
+    color: #c8a2c8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #d8bfd8;
+}
+
 
 
 /* 页面主容器 */
