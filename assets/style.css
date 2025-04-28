@@ -29,7 +29,7 @@ body::before {
     left: 0;
     width: 200%;
     height: 200%;
-    background: linear-gradient(120deg, rgba(255, 215, 0, 0.1), rgba(255, 255, 255, 0.05), rgba(255, 215, 0, 0.1));
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.03));
     animation: flow 30s linear infinite;
     pointer-events: none;
     z-index: -2;
@@ -41,6 +41,7 @@ body::before {
     50% { transform: translate(-50px, -50px); }
     100% { transform: translate(0, 0); }
 }
+
 
 /* 导航栏 */
 .navbar {
@@ -68,7 +69,6 @@ body::before {
 .navbar a:hover {
     color: #FFD700;
     transform: scale(1.05);
-    box-shadow: 0 0 8px #FFD700, 0 0 16px #FFD700;
 }
 
 .navbar .home {
@@ -137,8 +137,8 @@ h1, h2, h3 {
 }
 
 .project-item:hover, .content ul li:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.25);
 }
 
 /* Teaching页面右对齐时间 */
