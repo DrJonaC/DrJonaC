@@ -44,7 +44,7 @@ export function Hero() {
             </div>
             <div className="overflow-hidden rounded-[1.75rem] border border-white/70">
               <Image
-                src={withBasePath("/images/jianan-chen.jpg")}
+                src={withBasePath("/images/homepage-jianan-chen.jpeg")}
                 alt="Portrait of Jianan Chen"
                 width={640}
                 height={760}
