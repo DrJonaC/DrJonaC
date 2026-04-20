@@ -9,6 +9,7 @@ const config = [
   {
     ignores: [
       ".next/**",
+      "out/**",
       "node_modules/**",
       "old-site-reference/**",
       "plugins/**",

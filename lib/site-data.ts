@@ -1,16 +1,20 @@
+const siteOrigin =
+  process.env.NEXT_PUBLIC_SITE_ORIGIN ??
+  (process.env.GITHUB_ACTIONS === "true" ? "https://drjonac.github.io" : "http://localhost:3000");
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const siteMeta = {
   name: "Jianan Chen",
-  title: "LLM Agent Systems · Memory Privacy · Trustworthy AI",
+  title: "LLM Agent Systems / Memory Privacy / Trustworthy AI",
   statement: "I design AI systems that make memory visible, drift traceable, and privacy worth defending.",
   shortBio:
     "Computer Science Ph.D. focused on LLM agent systems, agent memory, privacy, and trustworthy AI. I build interactive systems that make hidden agent behavior legible to people.",
   location: "West Lafayette, Indiana",
   email: "chen3873@purdue.edu",
-  siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.GITHUB_ACTIONS === "true"
-      ? "https://drjonac.github.io/DrJonaC/"
-      : "http://localhost:3000"),
+  basePath,
+  siteOrigin,
+  siteUrl: `${siteOrigin}${basePath}/`,
   socialLinks: [
     { label: "GitHub", href: "https://github.com/DrJonaC" },
     {
@@ -19,6 +23,11 @@ export const siteMeta = {
     }
   ]
 };
+
+export function withBasePath(path: string) {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${siteMeta.basePath}${normalizedPath}`;
+}
 
 export const flagshipProjects = [
   {

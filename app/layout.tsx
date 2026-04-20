@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteMeta } from "@/lib/site-data";
+import { siteMeta, withBasePath } from "@/lib/site-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: `${siteMeta.name} | ${siteMeta.title}`,
   description: siteMeta.statement,
-  metadataBase: new URL(siteMeta.siteUrl),
+  metadataBase: new URL(siteMeta.siteOrigin),
   applicationName: siteMeta.name,
   keywords: [
     "Jianan Chen",
@@ -35,12 +35,21 @@ export const metadata: Metadata = {
     url: siteMeta.siteUrl,
     siteName: siteMeta.name,
     locale: "en_US",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: withBasePath("/opengraph-image"),
+        width: 1200,
+        height: 630,
+        alt: "Jianan Chen portfolio social share image"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteMeta.name} | ${siteMeta.title}`,
-    description: siteMeta.statement
+    description: siteMeta.statement,
+    images: [withBasePath("/twitter-image")]
   }
 };
 
