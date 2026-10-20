@@ -1,6 +1,6 @@
 # Jianan Chen Portfolio
 
-High-end personal portfolio for Jianan Chen, built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion.
+Personal portfolio for Jianan Chen, built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion.
 
 ## Stack
 
