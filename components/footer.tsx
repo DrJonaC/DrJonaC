@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteMeta } from "@/lib/site-data";
+import { siteMeta, withBasePath } from "@/lib/site-data";
 
 export function Footer() {
   return (
@@ -8,13 +8,22 @@ export function Footer() {
         <p>{siteMeta.statement}</p>
         <div className="flex flex-wrap gap-4">
           {siteMeta.socialLinks.map((link) => (
-            <Link key={link.label} href={link.href} target="_blank" rel="noreferrer">
+            <Link
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+            >
               {link.label}
             </Link>
           ))}
-          <Link href="/Jianan_Chen_Resume.pdf" target="_blank" rel="noreferrer">
+          <a
+            href={withBasePath("/Jianan_Chen_Resume.pdf")}
+            target="_blank"
+            rel="noreferrer"
+          >
             Resume
-          </Link>
+          </a>
         </div>
       </div>
     </footer>

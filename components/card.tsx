@@ -1,16 +1,12 @@
 import type { ReactNode } from "react";
-
-type CardProps = {
+export function Card({
+  children,
+  className = "",
+}: {
   children: ReactNode;
   className?: string;
-};
-
-export function Card({ children, className = "" }: CardProps) {
+}) {
   return (
-    <div
-      className={`glass-panel rounded-[2rem] p-6 transition duration-500 hover:-translate-y-1 hover:bg-[var(--color-surface-strong)] ${className}`}
-    >
-      {children}
-    </div>
+    <div className={`glass-panel rounded-2xl p-6 ${className}`}>{children}</div>
   );
 }

@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Card } from "@/components/card";
-
 type ProjectCardProps = {
   title: string;
   subtitle: string;
@@ -8,30 +6,46 @@ type ProjectCardProps = {
   accent: "blue" | "teal";
   href: string;
 };
-
-const accentStyles = {
-  blue: "from-blue-500/18 to-transparent",
-  teal: "from-emerald-500/18 to-transparent"
-};
-
-export function ProjectCard({ title, subtitle, summary, accent, href }: ProjectCardProps) {
+export function ProjectCard({
+  title,
+  subtitle,
+  summary,
+  accent,
+  href,
+}: ProjectCardProps) {
   return (
-    <Link href="/projects" className="group block">
-      <Card className="relative h-full overflow-hidden">
-        <div className={`absolute inset-x-0 top-0 h-32 bg-gradient-to-b ${accentStyles[accent]}`} />
-        <div className="relative space-y-6">
-          <div className="space-y-3">
-            <p className="eyebrow">{subtitle}</p>
-            <h3 className="text-3xl font-semibold tracking-[-0.04em]">{title}</h3>
-          </div>
-          <p className="text-base leading-7 text-[var(--color-muted)]">{summary}</p>
-          <div className="flex items-center justify-between pt-6 text-sm text-[var(--color-muted)]">
-            <span>Flagship system</span>
-            <span className="transition group-hover:translate-x-1">Explore</span>
-          </div>
-          <p className="font-mono text-xs text-[var(--color-muted)]">{href}</p>
+    <article className={`project-card project-${accent}`}>
+      <div className="project-visual" aria-hidden="true">
+        <span className="project-index">
+          {accent === "blue" ? "SYSTEM 01 / SAFEGUARD" : "SYSTEM 02 / MEMORY"}
+        </span>
+        <div className={accent === "blue" ? "trace-graphic" : "stack-graphic"}>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <span key={i} />
+          ))}
         </div>
-      </Card>
-    </Link>
+        <span className="visual-caption">
+          {accent === "blue"
+            ? "Detect. Trace. Intervene."
+            : "Remember. Inspect. Understand."}
+        </span>
+      </div>
+      <div className="project-content">
+        <h3>
+          {title}
+          <span aria-hidden="true">↗</span>
+        </h3>
+        <p className="project-subtitle">{subtitle}</p>
+        <p className="muted leading-7">{summary}</p>
+        <div className="project-links">
+          <Link className="text-link" href={`/projects#${title.toLowerCase()}`}>
+            Explore system <span aria-hidden="true">→</span>
+          </Link>
+          <a href={href} target="_blank" rel="noreferrer">
+            GitHub ↗<span className="sr-only"> (opens a new tab)</span>
+          </a>
+        </div>
+      </div>
+    </article>
   );
 }

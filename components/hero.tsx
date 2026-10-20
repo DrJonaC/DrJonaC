@@ -1,64 +1,101 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FadeIn } from "@/components/fade-in";
 import { withBasePath } from "@/lib/site-data";
 
 export function Hero() {
   return (
-    <section className="page-shell grid gap-10 py-14 md:grid-cols-[minmax(0,1fr)_320px] md:items-end md:py-24">
-      <FadeIn className="space-y-7">
-        <p className="eyebrow">Agent Systems / Memory Privacy / Trustworthy AI</p>
-        <div className="space-y-5">
-          <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.06em] md:text-7xl">
-            Jianan Chen
-          </h1>
-          <p className="max-w-3xl text-xl leading-9 text-[var(--color-muted)] md:text-2xl">
-            I design AI systems that make memory visible, drift traceable, and privacy worth defending.
+    <section className="page-shell hero">
+      <div className="hero-topline">
+        <span className="eyebrow">
+          Independent thinking. Inspectable intelligence.
+        </span>
+        <span className="eyebrow hero-edition">Research portfolio / 01</span>
+      </div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="identity">
+            <span className="status-dot" /> Jianan Chen{" "}
+            <span className="identity-role">/ Computer Science Ph.D.</span>
           </p>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          <Link
-            href="/projects"
-            className="inline-flex items-center justify-center rounded-full border border-[rgba(59,130,246,0.18)] bg-white/88 px-6 py-3 text-sm font-medium text-[var(--color-fg)] shadow-[0_10px_30px_rgba(59,130,246,0.08)] transition hover:-translate-y-[1px] hover:bg-white"
-          >
-            View flagship systems
-          </Link>
-          <Link
-            href="/Jianan_Chen_Resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] px-6 py-3 text-sm font-medium text-[var(--color-fg)] transition hover:bg-white/70"
-          >
-            Open resume
-          </Link>
-        </div>
-      </FadeIn>
-      <FadeIn delay={0.1}>
-        <div className="glass-panel relative overflow-hidden rounded-[2.2rem] p-5">
-          <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(59,130,246,0.14),transparent)]" />
-          <div className="relative flex flex-col gap-5">
-            <div className="grid grid-cols-3 gap-3 text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              <span>Researcher</span>
-              <span>Engineer</span>
-              <span>Scholar</span>
-            </div>
-            <div className="overflow-hidden rounded-[1.75rem] border border-white/70">
-              <Image
-                src={withBasePath("/images/homepage-jianan-chen.jpeg")}
-                alt="Portrait of Jianan Chen"
-                width={640}
-                height={760}
-                className="h-auto w-full object-cover"
-                priority
-              />
-            </div>
-            <p className="font-mono text-sm leading-7 text-[var(--color-muted)]">
-              Ph.D. in Computer Science. Building interactive systems for agent memory, privacy tracing,
-              and trustworthy human-AI interfaces.
-            </p>
+          <h1>
+            Intelligence.
+            <br />
+            With <span className="serif-word">memory.</span>
+            <br />
+            <span className="outline-word">With trust.</span>
+          </h1>
+          <p className="hero-description">
+            I design AI systems that make memory visible, drift traceable, and
+            privacy worth defending.
+          </p>
+          <div className="hero-actions">
+            <Link className="button-primary" href="/projects">
+              Explore the systems <span aria-hidden="true">↗</span>
+            </Link>
+            <Link className="text-link" href="/research">
+              Research <span aria-hidden="true">↗</span>
+            </Link>
           </div>
         </div>
-      </FadeIn>
+        <div
+          className="memory-art"
+          role="img"
+          aria-label="Conceptual diagram: agent memory connected to context, retrieval, and privacy safeguards"
+        >
+          <div className="art-caption">
+            <span>FIG. 01 / THE MEMORY SYSTEM</span>
+            <span className="art-cross">+</span>
+          </div>
+          <div className="orbital orbital-one" />
+          <div className="orbital orbital-two" />
+          <div className="orbital orbital-three" />
+          <div className="memory-core">
+            <span className="core-cross">✳</span>
+            <span>MEMORY</span>
+            <small>Context / Continuity</small>
+          </div>
+          <span className="orbit-node node-context">
+            01 <b>Context</b>
+          </span>
+          <span className="orbit-node node-retrieval">
+            02 <b>Retrieval</b>
+          </span>
+          <span className="orbit-node node-privacy">
+            03 <b>Privacy</b>
+          </span>
+          <div className="art-baseline">
+            <span>HUMAN-VISIBLE BY DESIGN</span>
+            <span>↗</span>
+          </div>
+        </div>
+      </div>
+      <div className="hero-bottom">
+        <div className="profile-mini">
+          <Image
+            src={withBasePath("/images/homepage-jianan-chen.jpeg")}
+            alt="Jianan Chen"
+            width={52}
+            height={52}
+            priority
+          />
+          <span>
+            Researcher. Engineer. Builder.
+            <br />
+            <span className="muted">West Lafayette, Indiana</span>
+          </span>
+        </div>
+        <p>
+          Agent systems <span>/</span> Memory privacy <span>/</span> Trustworthy
+          AI
+        </p>
+        <a
+          href="#systems"
+          className="scroll-link"
+          aria-label="Scroll to selected systems"
+        >
+          ↓
+        </a>
+      </div>
     </section>
   );
 }

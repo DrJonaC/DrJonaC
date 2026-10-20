@@ -7,12 +7,12 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans"
+  variable: "--font-sans",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono"
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "memory privacy",
     "trustworthy AI",
     "MIDAS",
-    "Pensieve"
+    "Pensieve",
   ],
   openGraph: {
     title: `${siteMeta.name} | ${siteMeta.title}`,
@@ -41,34 +41,31 @@ export const metadata: Metadata = {
         url: withBasePath("/opengraph-image"),
         width: 1200,
         height: 630,
-        alt: "Jianan Chen portfolio social share image"
-      }
-    ]
+        alt: "Jianan Chen portfolio social share image",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteMeta.name} | ${siteMeta.title}`,
     description: siteMeta.statement,
-    images: [withBasePath("/twitter-image")]
-  }
+    images: [withBasePath("/twitter-image")],
+  },
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="bg-[var(--color-bg)] text-[var(--color-fg)] antialiased">
-        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-x-0 top-[-10rem] h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.14),_transparent_55%)]" />
-          <div className="absolute inset-y-0 right-[-12rem] w-[28rem] bg-[radial-gradient(circle,_rgba(16,185,129,0.12),_transparent_55%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(245,245,247,0.95)_36%,rgba(237,239,242,0.82))]" />
-          <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(10,10,10,0.45)_1px,transparent_1px),linear-gradient(90deg,rgba(10,10,10,0.45)_1px,transparent_1px)] [background-size:80px_80px]" />
-        </div>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

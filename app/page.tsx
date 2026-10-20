@@ -1,68 +1,123 @@
-import { Card } from "@/components/card";
+import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { MemoryExplorer } from "@/components/memory-explorer";
 import { ProjectCard } from "@/components/project-card";
-import { Section } from "@/components/section";
-import { flagshipProjects, researchThemes, siteMeta } from "@/lib/site-data";
-
+import {
+  flagshipProjects,
+  researchThemes,
+  selectedWorks,
+  siteMeta,
+  withBasePath,
+} from "@/lib/site-data";
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Section
-        eyebrow="Flagship Systems"
-        title="Two systems that define my current research identity"
-        description="MIDAS and Pensieve anchor my work at the intersection of agent memory, privacy tracing, and human-visible AI behavior."
-      >
-        <div className="grid gap-6 md:grid-cols-2">
+      <section id="systems" className="page-shell home-section">
+        <div className="section-heading">
+          <p className="eyebrow">01 / Selected systems</p>
+          <div>
+            <h2>
+              Making the invisible
+              <br />
+              <span className="serif-word">inspectable.</span>
+            </h2>
+            <p>
+              Two systems exploring what agents remember, how context drifts,
+              and where human control begins.
+            </p>
+          </div>
+        </div>
+        <div className="project-grid">
           {flagshipProjects.map((project) => (
             <ProjectCard key={project.slug} {...project} />
           ))}
         </div>
-      </Section>
-      <Section
-        eyebrow="Research Themes"
-        title="I work on systems where memory is part of the interface"
-        description="Instead of listing papers up front, the site foregrounds the questions that shape the work."
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          {researchThemes.map((theme) => (
-            <Card key={theme.title}>
-              <h3 className="mb-3 text-2xl font-semibold tracking-[-0.03em]">{theme.title}</h3>
-              <p className="leading-7 text-[var(--color-muted)]">{theme.description}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
-      <Section
-        eyebrow="Interactive Prompt"
-        title="A small interface for exploring who I am"
-        description="This section borrows from agent-memory tooling: a lightweight prompt surface that reveals different slices of my work."
-      >
-        <MemoryExplorer />
-      </Section>
-      <Section
-        eyebrow="Contact"
-        title="Available for agent systems, applied AI research, and research engineering roles"
-        description={siteMeta.shortBio}
-      >
-        <Card className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-lg font-medium">{siteMeta.email}</p>
-            <p className="mt-2 text-[var(--color-muted)]">West Lafayette, Indiana</p>
+      </section>
+      <section className="research-band">
+        <div className="page-shell home-section">
+          <div className="section-heading">
+            <p className="eyebrow">02 / Research directions</p>
+            <div>
+              <h2>
+                Trust is a<br />
+                <span className="serif-word">systems problem.</span>
+              </h2>
+              <p>
+                From decentralized learning to persistent AI agents, my work
+                asks how intelligent systems can remain accountable to people.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-4 text-sm text-[var(--color-muted)]">
-            {siteMeta.socialLinks.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-                {link.label}
-              </a>
+          <div className="theme-grid">
+            {researchThemes.map((theme, index) => (
+              <div className="theme" key={theme.title}>
+                <span className="eyebrow">0{index + 1}</span>
+                <h3>{theme.title}</h3>
+                <p>{theme.description}</p>
+              </div>
             ))}
-            <a href="/Jianan_Chen_Resume.pdf" target="_blank" rel="noreferrer">
-              Resume
-            </a>
           </div>
-        </Card>
-      </Section>
+          <div className="publication-heading">
+            <h3>Selected publications</h3>
+            <Link className="text-link" href="/research">
+              Research archive ↗
+            </Link>
+          </div>
+          <div className="publication-list">
+            {selectedWorks.map((work, index) => (
+              <div key={work}>
+                <span className="eyebrow">0{index + 1}</span>
+                <p>{work}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="page-shell home-section">
+        <div className="section-heading">
+          <p className="eyebrow">03 / Personal index</p>
+          <div>
+            <h2>
+              A few threads
+              <br />
+              <span className="serif-word">to follow.</span>
+            </h2>
+          </div>
+        </div>
+        <MemoryExplorer />
+      </section>
+      <section className="page-shell contact-section">
+        <p className="eyebrow">04 / Start a conversation</p>
+        <h2>
+          Better systems begin
+          <br />
+          with <span className="serif-word">a question.</span>
+        </h2>
+        <p>Agent systems, applied AI research, and research engineering.</p>
+        <a className="contact-email" href={`mailto:${siteMeta.email}`}>
+          {siteMeta.email} <span aria-hidden="true">↗</span>
+        </a>
+        <div className="contact-links">
+          {siteMeta.socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label} ↗
+            </a>
+          ))}
+          <a
+            href={withBasePath("/Jianan_Chen_Resume.pdf")}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resume ↗
+          </a>
+        </div>
+      </section>
     </>
   );
 }

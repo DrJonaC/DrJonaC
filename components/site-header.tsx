@@ -1,28 +1,59 @@
+"use client";
 import Link from "next/link";
-import { siteMeta } from "@/lib/site-data";
-
+import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
   { href: "/projects", label: "Projects" },
   { href: "/research", label: "Research" },
-  { href: "/contact", label: "Contact" }
+  { href: "/contact", label: "Contact" },
 ];
-
 export function SiteHeader() {
+  const pathname = usePathname().replace(/\/$/, "") || "/";
+  const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-[rgba(245,245,247,0.72)] backdrop-blur-xl">
-      <div className="page-shell flex items-center justify-between gap-4 py-4">
-        <Link href="/" className="text-sm font-medium tracking-[0.18em] text-[var(--color-muted)] uppercase">
-          {siteMeta.name}
+    <header className="site-header">
+      <div className="page-shell header-inner">
+        <Link
+          className="wordmark"
+          href="/"
+          onClick={() => setOpen(false)}
+          aria-label="Jianan Chen home"
+        >
+          <span className="monogram">
+            jc<span>·</span>
+          </span>
+          <span>JIANAN CHEN</span>
         </Link>
-        <nav className="flex flex-wrap justify-end gap-3 text-sm text-[var(--color-muted)]">
+        <button
+          ref={menuButton}
+          className="menu-toggle"
+          aria-expanded={open}
+          aria-controls="primary-navigation"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? "Close −" : "Menu +"}
+        </button>
+        <nav
+          id="primary-navigation"
+          aria-label="Main navigation"
+          className={open ? "main-nav is-open" : "main-nav"}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              setOpen(false);
+              menuButton.current?.focus();
+            }
+          }}
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full border border-transparent px-3 py-1.5 transition hover:border-[var(--color-line)] hover:bg-white/60 hover:text-[var(--color-fg)]"
+              aria-current={pathname === item.href ? "page" : undefined}
+              onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
