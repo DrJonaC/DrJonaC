@@ -1,13 +1,12 @@
-import type { NextConfig } from "next";
-
 const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "DrJonaC";
 const basePath = isGitHubPages ? `/${repoName}` : "";
 
-const nextConfig: NextConfig = {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath,
+  basePath: basePath,
   assetPrefix: basePath || undefined,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
